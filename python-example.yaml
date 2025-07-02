@@ -3,25 +3,28 @@ kind: FlinkDeployment
 metadata:
   name: python-example
 spec:
-  mode: standalone
+  flinkConfiguration:
+    taskmanager.numberOfTaskSlots: '1'
+  flinkVersion: v1_20
   image: aliyanraf/flink-python-example:latest
   imagePullPolicy: Always
-  flinkVersion: v1_20
-  flinkConfiguration:
-    taskmanager.numberOfTaskSlots: "1"
-  serviceAccount: flink
+  job:
+    args:
+    - -pyclientexec
+    - /usr/local/bin/python3
+    - -py
+    - /opt/flink/python_demo.py
+    entryClass: org.apache.flink.client.python.PythonDriver
+    jarURI: local:///opt/flink/lib/flink-sql-connector-kafka-1.17.2.jar
+    parallelism: 6
+    upgradeMode: stateless
   jobManager:
     resource:
-      memory: "2048m"
       cpu: 1
+      memory: 2048m
+  mode: standalone
+  serviceAccount: flink
   taskManager:
     resource:
-      memory: "1024m"
       cpu: 1
-  job:
-    jarURI: local:///opt/flink/lib/flink-sql-connector-kafka-1.17.2.jar
-    entryClass: "org.apache.flink.client.python.PythonDriver"
-    args: ["-pyclientexec", "/usr/local/bin/python3", "-py", "/opt/flink/python_demo.py"]
-    parallelism: 3
-    upgradeMode: stateless
-
+      memory: 1024m

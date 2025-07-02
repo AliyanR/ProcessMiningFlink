@@ -44,7 +44,6 @@ RUN wget -P /opt/flink/lib \
 https://repo.maven.apache.org/maven2/org/apache/flink/flink-python/1.17.2/flink-python-1.17.2.jar
 
 COPY modell.pnml /opt/flink/modell.pnml
-COPY log_erstellen.py /opt/flink/log_erstellen.py
 COPY python_demo.py /opt/flink/python_demo.py
 
 USER flink

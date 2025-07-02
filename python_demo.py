@@ -33,7 +33,7 @@ config.set_string(
 )
 
 env = StreamExecutionEnvironment.get_execution_environment(configuration=config)
-env.set_parallelism(4)
+#env.set_parallelism(4)
 
 # Kafka-Quelle konfigurieren
 source = KafkaSource.builder() \
