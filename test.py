@@ -45,13 +45,10 @@ parallelisierung = []
 energieverbrauch = []
 
 # Test mit Parallelsierung von 1 bis 20
-for i in range(1, 10):
+for i in [2, 4, 6, 8]:
     print(f"\n🔧 Starte Test mit Parallelsierung: {i}")
 
     set_parallelism_in_yaml(PATH_TO_CONFIG, i)
-
-    # Hier könnte man z. B. das YAML vorher modifizieren, um parallelisierung zu steuern
-    # Das übernimmst du in deinem build.sh
 
     # Führt FlinkDeployment aus
     subprocess.run(["bash", "build.sh"], check=True)
@@ -85,4 +82,4 @@ plt.xlabel("Parallelsierung (Pods)")
 plt.ylabel("Energieverbrauch in Joule (letzte 5 Minuten)")
 plt.grid(True)
 plt.tight_layout()
-plt.show()
+plt.savefig("energieverbrauch_plot.png")

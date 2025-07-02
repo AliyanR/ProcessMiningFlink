@@ -16,7 +16,7 @@ spec:
     - /opt/flink/python_demo.py
     entryClass: org.apache.flink.client.python.PythonDriver
     jarURI: local:///opt/flink/lib/flink-sql-connector-kafka-1.17.2.jar
-    parallelism: 6
+    parallelism: 8
     upgradeMode: stateless
   jobManager:
     resource:

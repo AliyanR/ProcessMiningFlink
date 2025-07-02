@@ -18,6 +18,9 @@ import time
 from pm4py.objects.petri_net.importer import importer as pnml_importer
 from pm4py.objects.log.importer.xes import importer as xes_importer
 from pm4py.algo.conformance.tokenreplay import algorithm as token_replay
+from pm4py.algo.conformance.alignments.petri_net import algorithm as alignments
+
+
 
 
 
@@ -95,10 +98,10 @@ while True:
     replay_result = token_replay.apply(log, net, initial_marking, final_marking)
 
     # 📊 Ergebnisse
-    for i, res in enumerate(replay_result):
-        print(f"\nTrace {i+1}:")
-        print(f"  Fitness:           {res['trace_fitness']}")
-        print(f"  Consumed Tokens:   {res['consumed_tokens']}")
-        print(f"  Missing Tokens:    {res['missing_tokens']}")
-        print(f"  Produced Tokens:   {res['produced_tokens']}")
-        print(f"  Remaining Tokens:  {res['remaining_tokens']}")
+   # for i, res in enumerate(replay_result):
+       # print(f"\nTrace {i+1}:")
+      #  print(f"  Fitness:           {res['trace_fitness']}")
+       # print(f"  Consumed Tokens:   {res['consumed_tokens']}")
+       # print(f"  Missing Tokens:    {res['missing_tokens']}")
+       # print(f"  Produced Tokens:   {res['produced_tokens']}")
+       # print(f"  Remaining Tokens:  {res['remaining_tokens']}")
