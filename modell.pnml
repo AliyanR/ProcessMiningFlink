@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="SimpleProcess" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>SimpleProcess</text>
+    </name>
+    <page id="n0">
+      <place id="start">
+        <name>
+          <text>start</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="end">
+        <name>
+          <text>end</text>
+        </name>
+      </place>
+      <place id="p_bc">
+        <name>
+          <text>p_bc</text>
+        </name>
+      </place>
+      <place id="p_ab">
+        <name>
+          <text>p_ab</text>
+        </name>
+      </place>
+      <transition id="A">
+        <name>
+          <text>A</text>
+        </name>
+      </transition>
+      <transition id="C">
+        <name>
+          <text>C</text>
+        </name>
+      </transition>
+      <transition id="B">
+        <name>
+          <text>B</text>
+        </name>
+      </transition>
+      <arc id="127888373763200" source="start" target="A"/>
+      <arc id="127888373763296" source="B" target="p_bc"/>
+      <arc id="127888373763392" source="C" target="end"/>
+      <arc id="127888373763344" source="p_bc" target="C"/>
+      <arc id="127888373762960" source="A" target="p_ab"/>
+      <arc id="127888373763248" source="p_ab" target="B"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="end">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>
